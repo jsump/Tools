@@ -1,0 +1,61 @@
+git clone https://{YOUR_PERSONAL_TOKEN}@github.com/{YOUR_USERNAME}/alx-pre_course.git       
+
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+
+install nodejs 12.11.x (in wsl/docker/anything)
+
+in terminal put this commands:
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+close terminal and open new one:
+
+
+    nvm install 12.11
+    nvm alias default 12.11
+    node -v
+    npm -v
+
+root@90df4bcbd313:/alx-backend/0x00-pagination# wget "https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/misc/2020/5/7d3576d97e7560ae85135cc214ffe2b3412c51d7.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240331%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240331T134209Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3bed7f3d3bd2bb5f280465835ba73903e0206a3b60f0ae2438d5dc12eea930b5"
+The name is too long, 312 chars total.
+Trying to shorten...
+New name is 7d3576d97e7560ae85135cc214ffe2b3412c51d7.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240331%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240331T134209Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Am.
+--2024-03-31 13:55:44--  https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/misc/2020/5/7d3576d97e7560ae85135cc214ffe2b3412c51d7.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240331%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240331T134209Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=3bed7f3d3bd2bb5f280465835ba73903e0206a3b60f0ae2438d5dc12eea930b5
+Resolving s3.amazonaws.com (s3.amazonaws.com)... 52.216.9.245, 52.216.186.125, 52.217.112.136, ...
+Connecting to s3.amazonaws.com (s3.amazonaws.com)|52.216.9.245|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 786120 (768K) []
+Saving to: ‘7d3576d97e7560ae85135cc214ffe2b3412c51d7.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240331%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240331T134209Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Am’
+
+7d3576d97e7560ae8513 100%[===================>] 767.70K  --.-KB/s    in 0.01s   
+
+2024-03-31 13:55:44 (71.1 MB/s) - ‘7d3576d97e7560ae85135cc214ffe2b3412c51d7.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240331%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240331T134209Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Am’ saved [786120/786120]
+
+root@90df4bcbd313:/alx-backend/0x00-pagination# mv "7d3576d97e7560ae85135cc214ffe2b3412c51d7.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240331%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240331T134209Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Am" data.csv
+root@90df4bcbd313:/alx-backend/0x00-pagination# ls
+0-main.py                    1-main.py               data.csv     README.md
+0-simple_helper_function.py  1-simple_pagination.py  __pycache__
+root@90df4bcbd313:/alx-backend/0x00-pagination# mv data.csv Popular_Baby_Names.csv 
+root@90df4bcbd313:/alx-backend/0x00-pagination# ls
+0-main.py                    1-simple_pagination.py  README.md
+0-simple_helper_function.py  Popular_Baby_Names.csv
+1-main.py                    __pycache__
+root@90df4bcbd313:/alx-backend/0x00-pagination# wc -l Popular_Baby_Names.csv 
+19419 Popular_Baby_Names.csv
+root@90df4bcbd313:/alx-backend/0x00-pagination# 
+
+def find_user_by(self, **kwargs: Any) -> Any:
+        """
+        THis method takes in arbitrary keyword args
+        Returns first row found in users table as filtered by args
+        """
+        try:
+            user = self._session.query(User).filter_by(**kwargs).first()
+            if user is None:
+                raise NoResultFound
+            return user
+        except NoResultFound_ORM:
+            raise NoResultFound
+        except InvalidRequestError:
+            raise
